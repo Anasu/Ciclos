@@ -6,6 +6,10 @@ const funcion01 = function(n)
     {
       console.log(i);
     }
+    Swal.fire({
+      icon: 'info',
+      title: 'Tu resultado está listo en la consola'
+    });
   }
 };
 
@@ -15,10 +19,12 @@ const funcion02 = function(respuesta)
   if(regex.test(respuesta))
   {
     console.log("Sipi dipi (⌐■_■)");
+    return true;
   }
   else
   {
     console.log("ノ┬─┬ノ ︵ ( \\o°o)\\");
+    return false;
   }
 };
 
@@ -26,6 +32,10 @@ const funcion03 = function(mate, fisica, ciencias)
 {
   let promedio = (mate + fisica + ciencias)/3;
   console.log(Math.floor(promedio));
+  Swal.fire({
+    icon: 'warning',
+    title: `Tu promedio es un ${promedio}.`
+  });
 };
 
 const funcion04 = function(frutas)
@@ -38,6 +48,10 @@ const funcion04 = function(frutas)
       console.log(fruta);
     }
   }
+  Swal.fire({
+    icon: 'info',
+    title: 'Tu resultado está listo en la consola'
+  });
 };
 
 const funcion05 = function (nombre) 
@@ -47,21 +61,32 @@ const funcion05 = function (nombre)
   let espaciosRX = /[\d\s]/g;
   let resultado = nombre.match(regex);
   let espacios = nombre.match(espaciosRX);
-  console.log(espacios);
-  console.log(`Hay ${resultado.length} vocales`);
-  console.log(`Hay ${nombre.length - resultado.length - espacios.length} consonantes`);
+  let vocales = 0;
+  let consonantes = nombre.length;
+  if(resultado != null)
+  {
+    vocales = resultado.length;
+    consonantes -= vocales;
+  }
+  if(espacios != null)
+  {
+    consonantes -= espacios.length
+  }
+
+  Swal.fire({
+    icon: 'info',
+    title: 'En tu nombre hay:',
+    html: `<p>${vocales} vocales</p>
+           <p>${consonantes} consonantes</p>`
+  });
 };
 
 const funcion06 = function()
 {
+  Swal.fire({
+    icon: 'success',
+    title: 'YAY!!!',
+    text: 'Ganaste! (☞ﾟヮﾟ)☞'
+  });
   console.log("Ganaste! (☞ﾟヮﾟ)☞")
 };
-
-//Falta integrar los prompts pidiendo weás. Usar switch con cases
-funcion01(3);
-funcion02("blanco");
-funcion02("poto");
-funcion03(3.5, 4.0, 7);
-funcion04(["xoconostle", "piña", "manzana"]);
-funcion05("Perico los PÁlotÉs123");
-funcion06();
