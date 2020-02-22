@@ -1,0 +1,25 @@
+@startuml interfaz
+start
+:n° 1-6<
+if (1) then (yes)
+  :n entre 1-100<
+  :funcion01(numero);
+elseif (2) then (yes)
+  :color del caballo de napo?<
+  :funcion02(respuesta);
+elseif (3) then (yes)
+  :promedios mate, fisica, ciencias<
+  :funcion03(promedios);
+elseif (4) then (yes)
+  :3 frutas<
+  :funcion04(frutas);
+elseif (5) then (yes)
+  :nombre usuario<
+  :funcion05(nombre);
+elseif (6) then (yes)
+  :¯\_(ツ)_/¯;
+else (no)
+  :N° no valido!>
+endif
+
+@enduml 
